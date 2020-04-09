@@ -1,0 +1,15 @@
+@import url('./__container/elements__container.css');
+@import url('./__item/elements__item.css');
+
+.elements{
+  align-items: center;
+  margin:36px auto 0;
+  width: 288px;
+}
+
+@media screen and (min-width: 1280px) {
+  .elements {
+    width:882px;
+    margin-top: 50px;
+    }
+}
