@@ -1,0 +1,10 @@
+.profile__avatar-container{
+    width: 165px;
+    margin: auto;
+}
+
+@media screen and (min-width : 1280px) {
+  .profile__avatar-container {
+      margin: 0;
+    }
+}

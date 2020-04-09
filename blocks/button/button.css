@@ -1,0 +1,12 @@
+@import url('./__edit/button__edit.css');
+@import url('./__add/button__add.css');
+
+.button{
+    box-sizing: border-box;
+}
+
+.button:hover{
+    opacity: .6;
+    transition: 1s;
+    cursor: pointer;
+}

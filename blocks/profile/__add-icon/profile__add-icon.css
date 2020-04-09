@@ -1,0 +1,10 @@
+.profile__add-icon{
+    width: 16px;
+    color: #FFFFFF;
+}
+
+@media screen and (min-width : 1280px) {
+  .profile__add-icon {
+      width:22px;
+    }
+}

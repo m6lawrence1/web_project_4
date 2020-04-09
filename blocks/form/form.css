@@ -1,0 +1,11 @@
+@import url('./__input-text/form__input-text.css');
+@import url('./__submit-button/form__submit-button.css');
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 358px;
+    max-width: 75%;
+    margin: auto;
+    font-family: Inter, Arial, sans-serif;
+}
+
