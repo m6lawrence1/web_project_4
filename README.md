@@ -6,7 +6,7 @@
 * Figma
 * Technologies Used
 
-** Intro
+**Intro**
 * Around the U.S. is an interactive page where users can add, remove, or like photos.
 
 **Figma**
