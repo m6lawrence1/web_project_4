@@ -7,7 +7,7 @@
   width: 288px;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .elements {
     width:882px;
     margin-top: 50px;

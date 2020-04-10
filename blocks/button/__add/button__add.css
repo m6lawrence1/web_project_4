@@ -10,7 +10,7 @@
     margin: 32px 0 0;
 }
 
-@media screen and (min-width : 1280px) {
+@media screen and (min-width : 1024px) {
   .button__add {
       width:150px;
       position: absolute;

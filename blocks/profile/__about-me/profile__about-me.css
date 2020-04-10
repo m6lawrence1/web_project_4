@@ -11,7 +11,7 @@
     order: 3;
 }
 
-@media screen and (min-width : 1280px) {
+@media screen and (min-width : 1024px) {
   .profile__about-me {
       width: 318px;
       text-align: left;

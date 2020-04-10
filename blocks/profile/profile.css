@@ -14,7 +14,7 @@
 }
 
 
-@media screen and (min-width : 1280px) {
+@media screen and (min-width : 1024px) {
   .profile {
       display: flex;
       width: 882px;
