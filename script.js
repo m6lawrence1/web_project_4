@@ -36,6 +36,7 @@ function formSubmitHandler (evt) {
     let job = document.querySelector('.profile__about-me');
     
     //Alert messages for missing fields
+    //Thank you I added required attribute to the inputs :).
     if (nameValue.length===0){
         alert('Name field is required');
     } 
