@@ -1,0 +1,12 @@
+.button__delete{
+    background:url(../../../images/button_icons/delete_button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+}

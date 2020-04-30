@@ -1,5 +1,5 @@
 .button__like{
-    background:url(../../../images/button_icons/like_button.svg);
+    background:rgba(0,0,0,0) url(../../../images/button_icons/like_button.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
