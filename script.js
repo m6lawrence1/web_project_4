@@ -60,8 +60,6 @@ const profileAboutMe = document.querySelector('.profile__about-me');
 const profileNameInput = document.querySelector('.form__input_type_name'); 
 const profileAboutMeInput = document.querySelector('.form__input_type_about');
 
-//create object for the input values from the card form.
-
 //popup handler to toggle class to open/close modal
 function popupHandler(modal){
     modal.classList.toggle('popup_opened');
