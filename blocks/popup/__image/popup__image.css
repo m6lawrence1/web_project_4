@@ -2,6 +2,8 @@
     width: auto;
     height: auto; 
     max-height: 299px;
+    object-fit: scale-down;
+    object-position: center center;
 }
 
 @media screen and (min-width : 768px) {

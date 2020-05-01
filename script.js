@@ -59,11 +59,8 @@ const profileName = document.querySelector('.profile__name');
 const profileAboutMe = document.querySelector('.profile__about-me');
 const profileNameInput = document.querySelector('.form__input_type_name'); 
 const profileAboutMeInput = document.querySelector('.form__input_type_about');
-//Card
-const formToJSON = elements => [].reduce.call(elements, (data, element) => { 
-  data[element.name] = element.value;
-  return data;
-}, {}); //create object for the input values from the card form.
+
+//create object for the input values from the card form.
 
 //popup handler to toggle class to open/close modal
 function popupHandler(modal){
@@ -80,7 +77,8 @@ function profileFormSubmitHandler(evt){
 function addCardFormSubmitHandler(evt){
     evt.preventDefault();
     // Call our function to get the form data.
-    const data = formToJSON(addCardForm.elements);
+    const data = Object.fromEntries(new FormData(addCardForm)); // thank you for this! I guess I no longer need formToJSON variable that you suggested to rename to formInputElementsToObject then. SO removed that as well
+    
     //close the popup 
     popupHandler(addCardPopup);
     //call render function to pass through data to create new card
@@ -89,32 +87,15 @@ function addCardFormSubmitHandler(evt){
     addCardForm.reset(); 
 }
 
-/*********************** 
-    Event Listeners 
-***********************/
-profileForm.addEventListener('submit', profileFormSubmitHandler);
-addCardForm.addEventListener('submit', addCardFormSubmitHandler);
+function likeCard(card){
+    card.target.classList.toggle('button__like_status_selected');
+}
 
-editProfileButton.addEventListener('click', (evt) => {
-    popupHandler(editProfilePopup);
-});
-editProfileClosePopupButton.addEventListener('click', (evt) => {
-    popupHandler(editProfilePopup);
-});
-addCardButton.addEventListener('click', (evt) => {
-   popupHandler(addCardPopup);
-});
-addCardClosePopupButton.addEventListener('click', (evt) => {
-   popupHandler(addCardPopup);
-});
-imgCardClosePopupButton.addEventListener('click', (evt) => {
-   popupHandler(imgCardPopup);
-});
-
-
+function deleteCard(card){
+    card.currentTarget.parentNode.remove();
+}
 
 function createCard(card){
-    
     // clone the content of the template tag
     const cardElement = cardTemplate.cloneNode(true);
       
@@ -129,12 +110,9 @@ function createCard(card){
     cardTitle.textContent = card.name;
       
     //add eventlisteners
-    cardLikeButton.addEventListener("click", (evt) => { 
-        cardLikeButton.closest(".button__like").classList.toggle('button__like_status_selected');
-    });
-    cardDeleteButton.addEventListener("click", (evt) => {
-        cardDeleteButton.closest(".element").remove();
-    });
+    cardLikeButton.addEventListener('click', likeCard, false);
+    cardDeleteButton.addEventListener('click', deleteCard, false);
+    
     cardImage.addEventListener("click", (evt) => { 
         popupImage.src = card.link;
         popupImage.alt = card.name;
@@ -144,16 +122,41 @@ function createCard(card){
     return cardElement;
 }
 
+function renderCard(card){
+    //add the card element to the DOM, call createCard function
+    cardsContainer.prepend(createCard(card)); 
+}
 
 initialCards.forEach(card => { 
     renderCard(card);
   });
 
 
-function renderCard(card){
-    //add the card element to the DOM, call createCard function
-    cardsContainer.prepend(createCard(card)); 
-}
+/*********************** 
+    Event Listeners 
+***********************/
+//profile
+profileForm.addEventListener('submit', profileFormSubmitHandler);
+editProfileButton.addEventListener("click", function(){
+  popupHandler(editProfilePopup);
+});
+editProfileClosePopupButton.addEventListener("click", function(){
+  popupHandler(editProfilePopup);
+});
+//card
+addCardForm.addEventListener('submit', addCardFormSubmitHandler);
+addCardButton.addEventListener("click", function(){
+  popupHandler(addCardPopup);
+});
+addCardClosePopupButton.addEventListener("click", function(){
+  popupHandler(addCardPopup);
+});
+//img
+imgCardClosePopupButton.addEventListener("click", function(){
+  popupHandler(imgCardPopup);
+});
+
+
 
 
 

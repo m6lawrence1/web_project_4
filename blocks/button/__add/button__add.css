@@ -1,5 +1,5 @@
 .button__add{
-    background: rgba(0,0,0) url(../../../images/button_icons/add_button.svg);
+    background: rgba(0,0,0) url('../../../images/button_icons/add_button.svg');
     background-repeat: no-repeat;
     background-position: center;
     width: 282px;

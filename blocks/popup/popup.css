@@ -13,7 +13,7 @@
     height: 100%;
     z-index: 50;
     visibility: hidden;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, .6);
     opacity: 0;
     transition: all 1s ease-in-out;
 }

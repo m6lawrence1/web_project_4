@@ -10,6 +10,10 @@
     margin: auto;
     padding: 10px 12px 0;
     order: 0;
+    /*  not sure if we are to make the text wrap or use ellipsis here?*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
 }
 
 @media screen and (min-width : 1024px) {

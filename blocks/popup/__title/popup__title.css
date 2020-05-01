@@ -1,7 +1,7 @@
 .popup__title{
     width: 358px; /*made 358px instead of 330px so could use margin auto to align center same with other elements in the popup*/
     max-width: 75%;
-    font-family: Inter, Arial, sans-serif;
+    font-family: 'Inter','Arial', sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;

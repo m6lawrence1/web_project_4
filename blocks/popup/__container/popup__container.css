@@ -15,6 +15,6 @@
       /* If known, negative margins are probably better (less chance of blurry text). */
       /* margin: -200px 0 0 -200px; */
       background: #FFFFFF;
-      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, .15);
       border-radius: 10px;
 }

@@ -1,10 +1,8 @@
 .header{
-    width 320px;
+    width: 100%;
     padding-top: 28px;
     padding-bottom:32px;
-    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-    /* had to convert hex to rgba to get opacity for just the border, I think that's why I had originally tried using line-break before. Thanks! */
-    
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
 @media screen and (min-width : 1024px) {
