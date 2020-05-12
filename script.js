@@ -57,12 +57,15 @@ const imgCardClosePopupButton = imgCardPopup.querySelector(".popup__close-button
 //Profile
 const profileName = document.querySelector('.profile__name');
 const profileAboutMe = document.querySelector('.profile__about-me');
-const profileNameInput = document.querySelector('.form__input_type_name'); 
+const profileNameInput = document.querySelector('.form__input_type_name');
 const profileAboutMeInput = document.querySelector('.form__input_type_about');
+//enables submit button for edit profile popup after page load
+//profileNameInput.value = profileName.innerText;
+//profileAboutMeInput.value = profileAboutMe.innerText;
 
 //popup handler to toggle class to open/close modal
 function popupHandler(modal){
-    modal.classList.toggle('popup_opened');
+    modal.classList.toggle('popup_opened'); 
 }
 
 function profileFormSubmitHandler(evt){
@@ -75,7 +78,7 @@ function profileFormSubmitHandler(evt){
 function addCardFormSubmitHandler(evt){
     evt.preventDefault();
     // Call our function to get the form data.
-    const data = Object.fromEntries(new FormData(addCardForm)); // thank you for this! I guess I no longer need formToJSON variable that you suggested to rename to formInputElementsToObject then. SO removed that as well
+    const data = Object.fromEntries(new FormData(addCardForm));
     
     //close the popup 
     popupHandler(addCardPopup);
@@ -116,6 +119,7 @@ function createCard(card){
         popupImage.alt = card.name;
         popupImageLabel.textContent = card.name;
         popupHandler(imgCardPopup);
+        escapeClosePopup();
     });
     return cardElement;
 }
@@ -127,8 +131,18 @@ function renderCard(card){
 
 initialCards.forEach(card => { 
     renderCard(card);
-  });
+});
 
+
+//close popup by pressing Escape
+const escapeClosePopup = () => {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const popup = document.querySelector('.popup_opened');
+      popupHandler(popup);
+    }
+  });
+};
 
 /*********************** 
     Event Listeners 
@@ -136,26 +150,35 @@ initialCards.forEach(card => {
 //profile
 profileForm.addEventListener('submit', profileFormSubmitHandler);
 editProfileButton.addEventListener("click", function(){
-  popupHandler(editProfilePopup);
+    popupHandler(editProfilePopup);
+    profileNameInput.value = profileName.innerText;
+    profileAboutMeInput.value = profileAboutMe.innerText;
+    escapeClosePopup(); 
+    enableValidation(settings);
 });
 editProfileClosePopupButton.addEventListener("click", function(){
-  popupHandler(editProfilePopup);
+    popupHandler(editProfilePopup);
 });
 //card
 addCardForm.addEventListener('submit', addCardFormSubmitHandler);
 addCardButton.addEventListener("click", function(){
-  popupHandler(addCardPopup);
+    popupHandler(addCardPopup);
+    escapeClosePopup();
+    enableValidation(settings);
 });
 addCardClosePopupButton.addEventListener("click", function(){
-  popupHandler(addCardPopup);
+    popupHandler(addCardPopup);
+    addCardForm.reset();
 });
 //img
 imgCardClosePopupButton.addEventListener("click", function(){
-  popupHandler(imgCardPopup);
+    popupHandler(imgCardPopup);
 });
 
-
-
-
-
-
+//close popups by clicking on overlay
+document.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains('popup')) {
+    popupHandler(evt.target);
+    evt.preventDefault();
+  }
+});
