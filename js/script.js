@@ -154,7 +154,7 @@ editProfileButton.addEventListener("click", function(){
     profileNameInput.value = profileName.innerText;
     profileAboutMeInput.value = profileAboutMe.innerText;
     escapeClosePopup(); 
-    enableValidation(settings);
+    resetErrorMsgsOnPopup(settings);
 });
 editProfileClosePopupButton.addEventListener("click", function(){
     popupHandler(editProfilePopup);
@@ -164,7 +164,7 @@ addCardForm.addEventListener('submit', addCardFormSubmitHandler);
 addCardButton.addEventListener("click", function(){
     popupHandler(addCardPopup);
     escapeClosePopup();
-    enableValidation(settings);
+    resetErrorMsgsOnPopup(settings); 
 });
 addCardClosePopupButton.addEventListener("click", function(){
     popupHandler(addCardPopup);

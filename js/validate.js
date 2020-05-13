@@ -1,3 +1,16 @@
+const settings = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__submit-button",
+  inactiveButtonClass: "form__submit-button_disabled",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active"
+};
+// find all forms with the specified class in DOM, and
+// make an array from them using the Array.from() method
+const formList = Array.from(document.querySelectorAll(settings.formSelector));
+
+
 /*Show Error*/
 const showInputError = (formElement, inputElement, errorMessage, settings) => {
     // Find the error message element
@@ -47,18 +60,13 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
 };
 
 /* Find all fields in form */
-const setEventListeners = (formElement, settings) => {
+const setEventListeners = (formElement, settings) => { 
     // make an array from them using the Array.from() method
     const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
     const buttonElement = formElement.querySelector(settings.submitButtonSelector);
     // here, to check the button state in the very beginning
     toggleButtonState(inputList, buttonElement, settings);
     inputList.forEach((inputElement) => {
-        //check if existing input is valid when popup is opened.
-        //needed to clear any error messages if a user enters invalid input and closes popup and then opens the popup again.
-        if (inputElement.value !== ""){
-            isValid(formElement, inputElement, settings);
-        }
         // add the input event handler to each field 
         inputElement.addEventListener("input", () => {
         // Call the isValid() function inside the callback,
@@ -72,9 +80,6 @@ const setEventListeners = (formElement, settings) => {
 
 /* Validate all forms */
 const enableValidation = (settings) => {
-  // It will find all forms with the specified class in DOM, and
-  // make an array from them using the Array.from() method
-  const formList = Array.from(document.querySelectorAll(settings.formSelector));
   // Iterate over the resulting array
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
@@ -87,11 +92,19 @@ const enableValidation = (settings) => {
   });
 };
 
-const settings = {
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__submit-button",
-  inactiveButtonClass: "form__submit-button_disabled",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active"
+
+// validate once popup is open to clear any previous error messages if a user entered invalid input and closed popup and then opens it again.
+const resetErrorMsgsOnPopup = (settings) => {
+    formList.forEach((formElement) => {
+        const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+        const buttonElement = formElement.querySelector(settings.submitButtonSelector);
+        //reset button state if user entered valid inputs and closed the popup without submitting and opens the popup again.
+        toggleButtonState(inputList, buttonElement, settings);
+        inputList.forEach((inputElement) => {
+            //clear any error messages if a user enters invalid input and closes popup and then opens the popup again.
+            hideInputError(formElement, inputElement, settings); 
+        });
+    });  
 };
+
+enableValidation(settings);
