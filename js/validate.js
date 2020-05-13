@@ -94,17 +94,15 @@ const enableValidation = (settings) => {
 
 
 // validate once popup is open to clear any previous error messages if a user entered invalid input and closed popup and then opens it again.
-const resetErrorMsgsOnPopup = (settings) => {
-    formList.forEach((formElement) => {
-        const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
-        const buttonElement = formElement.querySelector(settings.submitButtonSelector);
-        //reset button state if user entered valid inputs and closed the popup without submitting and opens the popup again.
-        toggleButtonState(inputList, buttonElement, settings);
-        inputList.forEach((inputElement) => {
-            //clear any error messages if a user enters invalid input and closes popup and then opens the popup again.
-            hideInputError(formElement, inputElement, settings); 
-        });
-    });  
+const resetErrorMsgsOnPopup = (formElement, settings) => {
+    const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+    const buttonElement = formElement.querySelector(settings.submitButtonSelector);
+    //reset button state if user entered valid inputs and closed the popup without submitting and opens the popup again.
+    toggleButtonState(inputList, buttonElement, settings);
+    inputList.forEach((inputElement) => {
+        //clear any error messages if a user enters invalid input and closes popup and then opens the popup again.
+        hideInputError(formElement, inputElement, settings); 
+    }); 
 };
 
 enableValidation(settings);
