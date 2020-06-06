@@ -1,4 +1,4 @@
-form__submit-button_disabled{
+.form__submit-button_disabled{
     opacity: 0.2;
     border: 1px solid #000000;
     box-sizing: border-box;

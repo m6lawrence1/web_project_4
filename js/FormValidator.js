@@ -1,6 +1,6 @@
 class FormValidator {
     constructor(settings, formElement) {
-        this._formSelector = settings.formSelector
+        this._formSelector = settings.formSelector;
 		this._inputSelector = settings.inputSelector;
 		this._submitButtonSelector = settings.submitButtonSelector;
 		this._inactiveButtonClass = settings.inactiveButtonClass;
@@ -29,7 +29,6 @@ class FormValidator {
     }
     
     _toggleButtonState(buttonElement, inputList) {
-        console.log(this._hasInvalidInput(inputList));
         if (this._hasInvalidInput(inputList)) {
             buttonElement.classList.remove(this._inactiveButtonClass);
             buttonElement.removeAttribute('disabled', false);

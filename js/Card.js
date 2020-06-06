@@ -1,4 +1,4 @@
-import { popupHandler, escapeClosePopup } from './index.js';
+import { popupHandler } from './utils.js';
 
 class Card {
     constructor(data, cardTemplateSelector){
@@ -28,7 +28,6 @@ class Card {
         popupImage.alt = this._name;
         popupImageLabel.textContent = this._name;
         popupHandler(imgCardPopup);
-        escapeClosePopup();
     }
     
     _setEventListeners() {
