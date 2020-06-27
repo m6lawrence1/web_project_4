@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
     constructor(settings, formElement) {
         this._formSelector = settings.formSelector;
 		this._inputSelector = settings.inputSelector;
@@ -35,8 +35,7 @@ class FormValidator {
             
         } else {
             buttonElement.classList.add(this._inactiveButtonClass);
-            buttonElement.setAttribute('disabled', true);
-            
+            buttonElement.setAttribute('disabled', true);    
         }
     }
     
@@ -67,18 +66,16 @@ class FormValidator {
         
     }
     
-    resetErrorMsgsOnPopup() {
-        const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-        const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+    resetErrorMsgsOnPopup(formElement) {
+        const inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
+        const buttonElement = formElement.querySelector(this._submitButtonSelector);
         //reset button state if user entered valid inputs and closed the popup without submitting and opens the popup again.
         this._toggleButtonState(buttonElement, inputList);
         inputList.forEach((inputElement) => {
-            const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+            const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
             //clear any error messages if a user enters invalid input and closes popup and then opens the popup again.
             this._hideInputError(inputElement, errorElement); 
         }); 
         
     }      
 }
-
-export default FormValidator;
