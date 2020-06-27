@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/m6lawrence1/web_project_4#readme",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "babel-polyfill": "^6.26.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
