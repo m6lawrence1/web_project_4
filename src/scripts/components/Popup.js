@@ -1,20 +1,23 @@
+import {EscapeKey} from "../utils/constants.js"
+
 export default class Popup {
     constructor(modal){
         this._modal = document.querySelector(modal);
+        this._handleEscClose = this._handleEscClose.bind(this);
     }
         
     open(){
         this._modal.classList.add('popup_opened'); 
-        document.addEventListener("keydown", this._handleEscClose.bind(this))
+        document.addEventListener("keydown", this._handleEscClose)
 
     }
     close(){
         this._modal.classList.remove('popup_opened');
-        document.removeEventListener("keydown", this._handleEscClose.bind(this))
+        document.removeEventListener("keydown", this._handleEscClose)
     }
 
-    _handleEscClose(){
-        if (event.keyCode == 27) {
+    _handleEscClose(evt){
+        if (evt.keyCode == EscapeKey) { //thank you for the explanation :) 
             this.close();
         }
     }

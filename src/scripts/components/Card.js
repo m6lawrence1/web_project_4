@@ -2,13 +2,13 @@ export default class Card {
     constructor({name, link, handleCardClick}, cardTemplateSelector){
         this._name = name;
         this._link = link;
-        this._cardTemplateSelector = cardTemplateSelector;
+        this._card = document.querySelector(cardTemplateSelector);
         this._handleCardClick = handleCardClick;
     }
     
     _getTemplate() {
-        const cardTemplate = document.querySelector(this._cardTemplateSelector).content;
-        return cardTemplate.querySelector('.element').cloneNode(true);
+        const cardTemplate = this._card.content.querySelector('.element').cloneNode(true);
+        return cardTemplate;
     }
     
     _likeCard() {
@@ -17,6 +17,7 @@ export default class Card {
     
     _deleteCard() {
         this._cardElement.remove();
+        this._cardElement = null;
     }
     
     _setEventListeners() {

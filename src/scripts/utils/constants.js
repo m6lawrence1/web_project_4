@@ -13,6 +13,7 @@ const profileAboutMeInput = document.querySelector('.form__input_type_about');
 //buttons
 const editProfileButton = document.querySelector('.button__edit');
 const addCardButton = document.querySelector('.button__add');
+const EscapeKey = 27;
 
 const initialCards = [
     {
@@ -65,5 +66,6 @@ export { cardListSection,
          initialCards, 
          formList,
          profileNameInput,
-         profileAboutMeInput
+         profileAboutMeInput,
+         EscapeKey
 }
