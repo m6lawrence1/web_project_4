@@ -3,7 +3,7 @@
 .page{width:100%;background:#000;margin:0 auto;font-family:Inter,Arial,sans-serif}
 .header{width:100%;padding-top:28px;padding-bottom:32px;border-bottom:1px solid rgba(84,84,84,.7)}@media screen and (min-width:1024px){.header{width:882px;margin:auto;padding-top:45px}}
 .logo{width:126px;height:24px;padding-left:27px}@media screen and (min-width:1024px){.logo{width:173px;height:33px;padding-left:0}}
-.profile__avatar-container{width:165px;margin:auto}@media screen and (min-width:1024px){.profile__avatar-container{margin:0}}
+.profile__avatar-container:hover{background:#000 url(/web_project_4/a0bf8bc1ee7beea18993f305aec240ef.svg);background-repeat:no-repeat;background-position:50%}@media screen and (min-width:1024px){.profile__avatar-container{margin:0}}
 .profile__avatar{display:flex;width:120px;border-radius:50%;margin:auto}@media screen and (min-width:1024px){.profile__avatar{margin:0 26px 0 0}}
 .profile__info{width:282px;position:relative;display:flex;flex-wrap:wrap}@media screen and (min-width:1024px){.profile__info{width:428px}}
 .profile__name{width:200px;font-style:normal;font-weight:500;font-size:22px;line-height:56px;text-align:center;color:#fff;margin:auto;padding:10px 12px 0;order:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (min-width:1024px){.profile__name{width:380px;font-weight:500;font-size:42px;margin:0;padding:0 24px 0 0;text-align:left;align-self:flex-end}}
