@@ -1,5 +1,9 @@
 //containers
-const cardListSection = ".elements__container"
+const cardListSection = ".elements__container";
+const avatarPopup = document.querySelector('.popup_type_avatar');
+const avatarForm = avatarPopup.querySelector('.form');
+const deleteCardPopup = document.querySelector('.popup_type_delete');
+const deleteCardForm = deleteCardPopup.querySelector('.form');
 const editProfilePopup = document.querySelector('.popup_type_edit-profile');
 const profileForm = editProfilePopup.querySelector('.form');
 const addCardPopup = document.querySelector('.popup_type_add-place');
@@ -11,8 +15,10 @@ const profileAboutMe = document.querySelector('.profile__about-me');
 const profileNameInput = document.querySelector('.form__input_type_name');
 const profileAboutMeInput = document.querySelector('.form__input_type_about');
 //buttons
+const editAvatarButton = document.querySelector('.button__avatar');
 const editProfileButton = document.querySelector('.button__edit');
 const addCardButton = document.querySelector('.button__add');
+const deleteCardButton = document.querySelector('.button__delete');
 const EscapeKey = 27;
 
 const initialCards = [
@@ -58,10 +64,14 @@ const formList = Array.from(document.querySelectorAll(settings.formSelector));
 
 
 export { cardListSection, 
+         editAvatarButton,
+         avatarForm,
+         deleteCardForm,
          profileForm, 
          addCardForm, 
          editProfileButton, 
          addCardButton, 
+         deleteCardButton, 
          settings, 
          initialCards, 
          formList,

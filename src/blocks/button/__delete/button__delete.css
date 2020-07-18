@@ -1,3 +1,5 @@
+@import url('./_hidden/button__delete_hidden.css');
+
 .button__delete{
     background:url(../../../images/button_icons/delete_button.svg);
     background-repeat: no-repeat;
