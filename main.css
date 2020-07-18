@@ -18,6 +18,7 @@
 .button__add{background:#000 url(/web_project_4/d7a29882afedee669158bfb0f4395dc2.svg);background-repeat:no-repeat;background-position:50%;width:282px;height:50px;border:2px solid #fff;border-radius:2px;box-sizing:border-box;margin:32px 0 0}@media screen and (min-width:1024px){.button__add{width:150px;position:absolute;right:0;top:30px;margin:0}}
 .button__like{background:transparent url(/web_project_4/d0d1c0f04726a8db36a938e076894489.svg);background-repeat:no-repeat;background-position:50%;background-size:contain;border:none;width:21px;height:18px;margin:6px 7px 0}
 .button__like_status_selected{background:url(/web_project_4/6e0ec80d7382ec79e3520710f6d25748.svg);background-repeat:no-repeat;background-position:50%;background-size:contain}
+.button__delete_hidden{display:none}
 .button__delete{background:url(/web_project_4/07130bb297d5ad55edce9fafab11c179.svg);background-repeat:no-repeat;background-position:50%;background-size:contain;border:none;width:18px;height:18px;position:absolute;top:18px;right:15px}
 .button:hover{opacity:.6;transition:1s;cursor:pointer}
 .popup__container{display:flex;flex-direction:column;width:430px;max-width:75%;min-height:330px;max-height:100%;position:fixed;z-index:100;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;box-shadow:0 0 25px rgba(0,0,0,.15);border-radius:10px}
