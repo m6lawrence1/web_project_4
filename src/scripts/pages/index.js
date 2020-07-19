@@ -8,13 +8,11 @@ import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js';
 import {cardListSection,
         avatarForm,
-        deleteCardForm,
         editAvatarButton,
         profileForm, 
         addCardForm, 
         editProfileButton, 
-        addCardButton,  
-        deleteCardButton, 
+        addCardButton,   
         settings, 
         formList } 
 from '../utils/constants.js';
@@ -36,64 +34,58 @@ function handleCardClick(data) {
 }
 
 function handleCardLikeBtnClick({ cardIsLiked, _id }) {
-    if (cardIsLiked) {
-        return api.addLike({_id}).then((card) => {
-            return card.likes;
-        }); 
-    } else {
-        return api.removeLike({_id}).then((card) => {
-            return card.likes;
-        });
-    }
+    return api.updateLike({cardIsLiked, _id}).then((card) => {
+        return card.likes;
+    }); 
 }
 
 function addCardFormSubmitHandler(evt){
     api.addCard({name: evt.name, link: evt.link,})
-    .then(evt => {
+    .then((evt) => {
         //call renderCard function to pass through evt data to create new card
         cardsList.addItem(renderCard({...evt, owner: evt.owner._id, likes: evt.likes, _id: evt._id, handleDeleteClick: () =>
         deleteCardFormPopup.open({ _id: cardItem._id })}));
+        addCardFormPopup.close();
     })
-    .catch(console.log)
 }
 
 function avatarFormSubmitHandler(evt){
     api.setUserAvatar({avatar: evt.link})
-    .then(evt => {
+    .then((evt) => {
         profileContent.setUserAvatar(evt);
+        editAvatarFormPopup.close();
     })
-    .catch(console.log)
 }
 
-let cardIdDelete;
-let cardItemDelete;
 function renderCard(cardItem, userId) {
     const userLikedCard = cardItem.likes
     .map((usersLiked) => usersLiked._id)
     .includes(userId);
     const card = new Card(
       {...cardItem, popup: imagePopup, handleCardClick, handleDeleteClick: (item) => {
-            cardItemDelete = item;
-            cardIdDelete = card._id;
             deleteCardFormPopup.open({ _id: card._id })
         }, userLikedCard, userId, handleCardLikeBtnClick} , '#element'
-  );
-  return card.generateCard();
+    );
+    //I seemed to have trouble adding a method to popupWithForm, not sure what I was doing wrong but found an alternative way to get the delete card to work without shared variables. Hope this way is ok. Thank you for all your help! 
+    cardItems[cardItem._id] = card;
+    return card.generateCard();
 }
 
-
+const cardItems = {};
 function deleteCardFormSubmitHandler(cardItem){
-  return api.deleteCard({_id: cardItem._id}).then(() => {
-    cardItemDelete.remove(); 
+    return api.deleteCard({_id: cardItem._id}).then(() => {
+        cardItems[cardItem._id].deleteCard();
+        delete cardItems[cardItem._id];
+        deleteCardFormPopup.close();
   });
 }
 
 function profileFormSubmitHandler(evt){
     api.setUserProfile({name: evt.name, about: evt.about})
-    .then(evt => {
+    .then((evt) => {
         profileContent.setUserInfo(evt);
+        editProfileFormPopup.close();  
     })
-    .catch(console.log)
 }
 /*********************** 
     Class Instances 
@@ -113,7 +105,7 @@ const editAvatarFormPopup = new PopupWithForm(
 
 //Initiate Delete Card Form 
 const deleteCardFormPopup = new PopupWithForm(
-    deleteCardFormSubmitHandler,
+    deleteCardFormSubmitHandler, 
   '.popup_type_delete', 'Deleting...'
 );
 

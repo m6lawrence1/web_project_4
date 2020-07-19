@@ -10,11 +10,11 @@ export default class PopupWithForm extends Popup {
         this._buttonLoadText = buttonLoadText;
     }
     
-    _getInputValues(evt){
+    _getInputValues(){
         const values = { ...this._callBackParameters };
         const data = Object.fromEntries(new FormData(this._form));
         Object.assign(data, values);
-        return data;
+        return data;     
     }
     
     open(callBackParameters) {
@@ -24,10 +24,11 @@ export default class PopupWithForm extends Popup {
     
     close() {
         this._form.reset();
-        super.close();   
+        super.close();
+        this.rendering(false);
     }
     
-    _rendering() {
+    rendering() {
         if (true) {
             this._button.textContent =  this._buttonLoadText;
         } else {
@@ -39,10 +40,8 @@ export default class PopupWithForm extends Popup {
         super.setEventListeners();
         this._form.addEventListener("submit", (evt) => {
             evt.preventDefault();
-            this._rendering(true);
             this._callback(this._getInputValues(evt));
-            this._rendering(false);
-            this.close();
+            this.rendering(true);
             evt.stopPropagation();
     });
   }
