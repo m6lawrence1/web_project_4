@@ -25,11 +25,10 @@ export default class PopupWithForm extends Popup {
     close() {
         this._form.reset();
         super.close();
-        this.rendering(false);
     }
     
-    rendering() {
-        if (true) {
+    rendering(isLoading) {
+        if (isLoading) {
             this._button.textContent =  this._buttonLoadText;
         } else {
             this._button.textContent = this._buttonText;

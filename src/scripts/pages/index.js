@@ -46,6 +46,7 @@ function addCardFormSubmitHandler(evt){
         cardsList.addItem(renderCard({...evt, owner: evt.owner._id, likes: evt.likes, _id: evt._id, handleDeleteClick: () =>
         deleteCardFormPopup.open({ _id: cardItem._id })}));
         addCardFormPopup.close();
+        addCardFormPopup.rendering(false);
     })
 }
 
@@ -54,6 +55,7 @@ function avatarFormSubmitHandler(evt){
     .then((evt) => {
         profileContent.setUserAvatar(evt);
         editAvatarFormPopup.close();
+        editAvatarFormPopup.rendering(false);
     })
 }
 
@@ -77,14 +79,16 @@ function deleteCardFormSubmitHandler(cardItem){
         cardItems[cardItem._id].deleteCard();
         delete cardItems[cardItem._id];
         deleteCardFormPopup.close();
+        deleteCardFormPopup.rendering(false);
   });
 }
 
 function profileFormSubmitHandler(evt){
     api.setUserProfile({name: evt.name, about: evt.about})
-    .then((evt) => {
+        .then((evt) => {
         profileContent.setUserInfo(evt);
-        editProfileFormPopup.close();  
+        editProfileFormPopup.close(); 
+        editProfileFormPopup.rendering(false);
     })
 }
 /*********************** 
