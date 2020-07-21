@@ -40,11 +40,6 @@ export default class Card {
         });
     }
     
-    deleteCard() {
-        this._cardElement.remove();
-        this._cardElement = null;
-    }
-    
     _setEventListeners() {
         this._cardElement.querySelector('.button__delete').addEventListener('click', () => {
         const cardItem = this._cardElement.querySelector('.button__delete').closest('.element');

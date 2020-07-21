@@ -41,9 +41,9 @@ function handleCardLikeBtnClick({ cardIsLiked, _id }) {
 
 function addCardFormSubmitHandler(evt){
     api.addCard({name: evt.name, link: evt.link,})
-    .then((evt) => {
-        //call renderCard function to pass through evt data to create new card
-        cardsList.addItem(renderCard({...evt, owner: evt.owner._id, likes: evt.likes, _id: evt._id, handleDeleteClick: () =>
+    .then((card) => {
+        //when I removed evt I got errors saying owner was not defined so I change it from "evt" to "card" 
+        cardsList.addItem(renderCard({...card, owner: card.owner._id, likes: card.likes, _id: card._id, handleDeleteClick: () =>
         deleteCardFormPopup.open({ _id: cardItem._id })}));
         addCardFormPopup.close();
         addCardFormPopup.rendering(false);
@@ -52,8 +52,8 @@ function addCardFormSubmitHandler(evt){
 
 function avatarFormSubmitHandler(evt){
     api.setUserAvatar({avatar: evt.link})
-    .then((evt) => {
-        profileContent.setUserAvatar(evt);
+    .then((link) => {
+        profileContent.setUserAvatar({avatar: link.avatar});
         editAvatarFormPopup.close();
         editAvatarFormPopup.rendering(false);
     })
@@ -64,20 +64,17 @@ function renderCard(cardItem, userId) {
     .map((usersLiked) => usersLiked._id)
     .includes(userId);
     const card = new Card(
-      {...cardItem, popup: imagePopup, handleCardClick, handleDeleteClick: (item) => {
-            deleteCardFormPopup.open({ _id: card._id })
+      {...cardItem, popup: imagePopup, handleCardClick, handleDeleteClick: (item) => {       
+        deleteCardFormPopup.open({ _id: card._id, element: item}, )
         }, userLikedCard, userId, handleCardLikeBtnClick} , '#element'
     );
-    //I seemed to have trouble adding a method to popupWithForm, not sure what I was doing wrong but found an alternative way to get the delete card to work without shared variables. Hope this way is ok. Thank you for all your help! 
-    cardItems[cardItem._id] = card;
+    //sorry I think I had misunderstood what you originally stated about the shared variables. I was able to find a simple way to remove the element and using "item" now. I did ask for help and it seems like some other people did use shared variable.  
     return card.generateCard();
 }
 
-const cardItems = {};
 function deleteCardFormSubmitHandler(cardItem){
     return api.deleteCard({_id: cardItem._id}).then(() => {
-        cardItems[cardItem._id].deleteCard();
-        delete cardItems[cardItem._id];
+        cardItem.element.remove();
         deleteCardFormPopup.close();
         deleteCardFormPopup.rendering(false);
   });
@@ -85,7 +82,7 @@ function deleteCardFormSubmitHandler(cardItem){
 
 function profileFormSubmitHandler(evt){
     api.setUserProfile({name: evt.name, about: evt.about})
-        .then((evt) => {
+        .then(() => {
         profileContent.setUserInfo(evt);
         editProfileFormPopup.close(); 
         editProfileFormPopup.rendering(false);
@@ -134,7 +131,6 @@ const cardsList = new Section({
   }
 }, cardListSection);
 
-
 api.getAppInfo().then(([initialCards, userProfile]) => {
     const userId = userProfile._id;
     //initialize card list
@@ -145,7 +141,6 @@ api.getAppInfo().then(([initialCards, userProfile]) => {
     profileContent.setUserInfo({name: userProfile.name, about: userProfile.about})
     profileContent.setUserAvatar({avatar: userProfile.avatar,})
 })
-
 
 //Form Validation
 formList.forEach((formElement) => {
