@@ -21,7 +21,6 @@
 .button__like_status_selected{background:url(/web_project_4/6e0ec80d7382ec79e3520710f6d25748.svg);background-repeat:no-repeat;background-position:50%;background-size:contain}
 .button__delete_hidden{display:none}
 .button__delete{background:url(/web_project_4/07130bb297d5ad55edce9fafab11c179.svg);background-repeat:no-repeat;background-position:50%;background-size:contain;border:none;width:18px;height:18px;position:absolute;top:18px;right:15px}
-.button_theme_light{background:#fff;border-radius:2px}
 .button:hover{opacity:.6;transition:1s;cursor:pointer}
 .popup__container{display:flex;flex-direction:column;width:430px;max-width:75%;min-height:330px;max-height:100%;position:fixed;z-index:100;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;box-shadow:0 0 25px rgba(0,0,0,.15);border-radius:10px}
 .popup__container_type_image{background:transparent;box-sizing:border-box;border-radius:0;height:auto;width:auto;max-height:299px}@media screen and (min-width:768px){.popup__container_type_image{max-height:400px}}@media screen and (min-width:1024px){.popup__container_type_image{max-height:540px}}
@@ -37,7 +36,8 @@
 .form__input{width:100%;height:27px;font-style:normal;font-weight:400;font-size:14px;line-height:17px;color:#000;border:none;border-bottom:1px solid rgba(0,0,0,.2)}.form__input.form__input_type_error{border-bottom:1px solid red}
 .form__submit-button_disabled{opacity:.2;border:1px solid #000;box-sizing:border-box;border-radius:2px;color:#000;background-color:transparent;cursor:default}
 .form__submit-button_confirm{margin:0 auto 36px}
-.form__submit-button{width:100%;height:50.15px;background:#000;border-radius:2px;font-style:normal;font-weight:400;font-size:18px;line-height:22px;box-sizing:border-box;text-align:center;color:#fff;margin:48px auto 36px}.form__submit-button:hover{opacity:.6;transition:1s;cursor:pointer}.form__submit-button.form__submit-button_disabled{opacity:.2;border:1px solid #000;box-sizing:border-box;border-radius:2px;color:#000;background-color:transparent;cursor:default}.form__submit-button.form__submit-button_confirm{margin:0 auto 36px}
+.form__submit-button_light{background:#fff;border-radius:2px}
+.form__submit-button{width:100%;height:50.15px;background:#000;border-radius:2px;font-style:normal;font-weight:400;font-size:18px;line-height:22px;box-sizing:border-box;text-align:center;color:#fff;margin:48px auto 36px}.form__submit-button.form__submit-button_light{background:#fff;border-radius:2px}.form__submit-button:hover{opacity:.6;transition:1s;cursor:pointer}.form__submit-button.form__submit-button_disabled{opacity:.2;border:1px solid #000;box-sizing:border-box;border-radius:2px;color:#000;background-color:transparent;cursor:default}.form__submit-button.form__submit-button_confirm{margin:0 auto 36px}
 .form__input-error_active{font-style:normal;font-weight:400;font-size:10px;color:red;position:absolute;top:calc(100% + 2px);left:0;transition:.3s;width:100%}@media screen and (min-width:768px){.form__input-error_active{top:calc(100% + 3px);line-height:15px;font-size:12px}}
 
 .form{display:flex;flex-direction:column;width:358px;max-width:75%;margin:auto;font-family:Inter,Arial,sans-serif}
