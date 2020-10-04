@@ -33,8 +33,8 @@
 .popup_opened{display:flex;visibility:visible;opacity:1;transition:all 1s ease-in-out}
 .form__field{width:100%;margin-bottom:35px;position:relative;display:flex;flex-direction:column}.form__field:last-of-type{margin-bottom:0}@media screen and (min-width:768px){.form__field{margin-bottom:32px}}
 .form__input_type_error{border-bottom:1px solid red}
-.form__input_theme_dark{background-color:#000}
-.form__input{width:100%;height:27px;font-style:normal;font-weight:400;font-size:14px;line-height:17px;color:#000;border:none;border-bottom:1px solid rgba(0,0,0,.2)}.form__input.form__input_theme_dark{background-color:#000}.form__input.form__input_type_error{border-bottom:1px solid red}
+.form__input_theme_dark{background-color:#000;border-bottom:2px solid #ccc}
+.form__input{width:100%;height:27px;font-style:normal;font-weight:400;font-size:14px;line-height:17px;color:#000;border:none;border-bottom:1px solid rgba(0,0,0,.2)}.form__input.form__input_theme_dark{background-color:#000;border-bottom:2px solid #ccc}.form__input.form__input_type_error{border-bottom:1px solid red}
 .form__submit-button_disabled{opacity:.2;border:1px solid #000;box-sizing:border-box;border-radius:2px;color:#000;background-color:transparent;cursor:default}
 .form__submit-button_confirm{margin:0 auto 36px}
 .form__submit-button_light{background:#fff;border-radius:2px;border-color:transparent;color:#000}
