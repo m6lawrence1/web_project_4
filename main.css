@@ -21,6 +21,7 @@
 .button__like_status_selected{background:url(/web_project_4/6e0ec80d7382ec79e3520710f6d25748.svg);background-repeat:no-repeat;background-position:50%;background-size:contain}
 .button__delete_hidden{display:none}
 .button__delete{background:url(/web_project_4/07130bb297d5ad55edce9fafab11c179.svg);background-repeat:no-repeat;background-position:50%;background-size:contain;border:none;width:18px;height:18px;position:absolute;top:18px;right:15px}
+.button_theme_light{background:#fff;border-radius:2px}
 .button:hover{opacity:.6;transition:1s;cursor:pointer}
 .popup__container{display:flex;flex-direction:column;width:430px;max-width:75%;min-height:330px;max-height:100%;position:fixed;z-index:100;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;box-shadow:0 0 25px rgba(0,0,0,.15);border-radius:10px}
 .popup__container_type_image{background:transparent;box-sizing:border-box;border-radius:0;height:auto;width:auto;max-height:299px}@media screen and (min-width:768px){.popup__container_type_image{max-height:400px}}@media screen and (min-width:1024px){.popup__container_type_image{max-height:540px}}
