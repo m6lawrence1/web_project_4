@@ -3,7 +3,7 @@
 .page{width:100%;background:#000;margin:0 auto;font-family:Inter,Arial,sans-serif}
 .header{width:100%;padding-top:28px;padding-bottom:32px;border-bottom:1px solid rgba(84,84,84,.7)}@media screen and (min-width:1024px){.header{width:882px;margin:auto;padding-top:45px}}
 .logo{width:126px;height:24px;padding-left:27px}@media screen and (min-width:1024px){.logo{width:173px;height:33px;padding-left:0}}
-.login__link{font-weight:400;font-size:14px;line-height:17px;text-align:center;color:#fff}
+.login__link{font-weight:400;font-size:14px;line-height:17px;text-align:center;color:#fff;margin:0 auto}
 
 .profile__avatar-container{position:relative;width:120px;height:120px;z-index:0}.profile__avatar-container:hover .button__avatar{display:block;background:#000 url(/web_project_4/a0bf8bc1ee7beea18993f305aec240ef.svg);background-repeat:no-repeat;background-position:50%;background-size:26px;border:none}
 .profile__avatar{display:flex;width:120px;border-radius:50%;margin:auto}
@@ -39,7 +39,7 @@
 .form__submit-button_disabled{opacity:.2;border:1px solid #000;box-sizing:border-box;border-radius:2px;color:#000;background-color:transparent;cursor:default}
 .form__submit-button_confirm{margin:0 auto 36px}
 .form__submit-button_light{background:#fff;border-radius:2px;border-color:transparent;color:#000}
-.form__submit-button{width:100%;height:50.15px;background:#000;border-radius:2px;font-style:normal;font-weight:400;font-size:18px;line-height:22px;box-sizing:border-box;text-align:center;color:#fff;margin:48px auto 36px}.form__submit-button.form__submit-button_light{background:#fff;border-radius:2px;border-color:transparent;color:#000}.form__submit-button:hover{opacity:.6;transition:1s;cursor:pointer}.form__submit-button.form__submit-button_disabled{opacity:.2;border:1px solid #000;box-sizing:border-box;border-radius:2px;color:#000;background-color:transparent;cursor:default}.form__submit-button.form__submit-button_confirm{margin:0 auto 36px}
+.form__submit-button{width:100%;height:50.15px;background:#000;border-radius:2px;font-style:normal;font-weight:400;font-size:18px;line-height:22px;box-sizing:border-box;text-align:center;color:#fff;margin:48px auto 36px}.form__submit-button.form__submit-button_light{background:#fff;border-radius:2px;border-color:transparent;color:#000;margin-bottom:15px}.form__submit-button:hover{opacity:.6;transition:1s;cursor:pointer}.form__submit-button.form__submit-button_disabled{opacity:.2;border:1px solid #000;box-sizing:border-box;border-radius:2px;color:#000;background-color:transparent;cursor:default}.form__submit-button.form__submit-button_confirm{margin:0 auto 36px}
 .form__input-error_active{font-style:normal;font-weight:400;font-size:10px;color:red;position:absolute;top:calc(100% + 2px);left:0;transition:.3s;width:100%}@media screen and (min-width:768px){.form__input-error_active{top:calc(100% + 3px);line-height:15px;font-size:12px}}
 
 .form__title{font-style:normal;font-weight:900;font-size:24px;line-height:29px;text-align:center;color:#fff;padding-top:60px;padding-bottom:50px;margin:0 auto}
