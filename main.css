@@ -11,7 +11,7 @@
 .content{background:#000}
 .header__link{color:#fff;padding-left:24px;font-style:normal;font-weight:400;font-size:18px;line-height:22px;text-align:right}.header__link:hover{opacity:.6;transition:1s;cursor:pointer}
 
-.header__info{display:flex;align-items:flex-end}
+.header__info{display:flex;align-items:flex-end;padding-right:27px}@media screen and (min-width:1024px){.header__info{padding-right:0}}
 .header__email{font-style:normal;font-weight:500;font-size:18px;line-height:22px;text-align:right;color:#fff;margin:0}
 .header{width:100%;padding-top:28px;padding-bottom:32px;border-bottom:1px solid rgba(84,84,84,.7);display:flex;justify-content:space-between}@media screen and (min-width:1024px){.header{width:882px;margin:auto;padding-top:45px}}
 .logo{width:126px;height:24px;padding-left:27px}@media screen and (min-width:1024px){.logo{width:173px;height:33px;padding-left:0}}
